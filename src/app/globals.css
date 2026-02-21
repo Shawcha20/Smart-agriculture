@@ -1,26 +1,107 @@
 @import "tailwindcss";
+@import "shadcn/tailwind.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-ring: var(--ring);
+  --radius-lg: var(--radius);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* ===============================
+   🌿 SMART AGRICULTURE COLOR THEME
+   =============================== */
+
+:root {
+  --radius: 0.75rem;
+
+  /* 🌾 Background Color – Soft Agriculture Background */
+  /* Hex: #F1F8E9 */
+  --background: #F1F8E9;
+
+  /* 🌱 Primary Text – Deep Green */
+  /* Hex: #1B5E20 */
+  --foreground: #1B5E20;
+
+  /* 🌿 Primary Color – Agriculture Green */
+  /* Hex: #2E7D32 */
+  --primary: #2E7D32;
+  --primary-foreground: #FFFFFF;
+
+  /* 🌿 Secondary Color – Fresh Light Green */
+  /* Hex: #66BB6A */
+  --secondary: #66BB6A;
+  --secondary-foreground: #1B5E20;
+
+  /* 🌻 Accent Highlight – Warm Yellow */
+  /* Hex: #FBC02D */
+  --accent: #FBC02D;
+  --accent-foreground: #1B5E20;
+
+  /* 🌰 Earthy Brown Accent */
+  /* Hex: #8D6E63 */
+  --muted: #8D6E63;
+  --muted-foreground: #FFFFFF;
+
+  /* 🌿 Border Color (light green blend) */
+  --border: #C8E6C9;
+
+  /* 🌿 Ring / Focus Color */
+  --ring: #2E7D32;
+}
+
+/* ===============================
+   🌙 DARK MODE (AGRICULTURE NIGHT THEME)
+   =============================== */
+
+.dark {
+
+  /* 🌑 Dark Background */
+  --background: #1B5E20;
+
+  /* 🌿 Light Text */
+  --foreground: #F1F8E9;
+
+  /* 🌾 Primary stays vibrant */
+  --primary: #66BB6A;
+  --primary-foreground: #1B5E20;
+
+  /* 🌿 Secondary */
+  --secondary: #2E7D32;
+  --secondary-foreground: #FFFFFF;
+
+  /* 🌻 Accent Highlight */
+  --accent: #FBC02D;
+  --accent-foreground: #1B5E20;
+
+  /* 🌰 Muted Brown */
+  --muted: #8D6E63;
+  --muted-foreground: #FFFFFF;
+
+  /* 🌿 Borders */
+  --border: rgba(255, 255, 255, 0.1);
+
+  /* 🌿 Focus Ring */
+  --ring: #FBC02D;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
   }
-}
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  body {
+    @apply bg-background text-foreground;
+  }
 }
